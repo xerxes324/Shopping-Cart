@@ -9,9 +9,9 @@ function HomeDesign(){
   const nav = useNavigate();
   return(
     <>
-      <div class = "header">
-          <h1> Shopping App </h1>
-          <div class = "header-buttons">
+      <div className = "header">
+          <h1> </h1>
+          <div className = "header-buttons">
 
             <button onClick={
               ()=>{
