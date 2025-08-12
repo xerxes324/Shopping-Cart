@@ -8,7 +8,7 @@ html,body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: greenyellow;
+    background-color: green;
     height: 5rem;
 }
 
@@ -32,14 +32,101 @@ html,body{
     font-size: 30px;
     justify-content: space-around;
     width: 15%;
+    gap: 10px;
 }
 
 
-.huntingWallpaper-About{
-    background-color: blue;
-    height: ;
+.wallpaper-About{
+    position: relative;
 }
 
-.huntingWallpaper-About img{
+.wallpaper-About img{
+    object-fit: fill;
+    width: 100%;
+    max-height: 30rem;
+}
 
+.startShop{
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    font-size: larger;
+    border-radius: 2em 5em/5em;
+    box-shadow: 2px 2px 0px gray;
+}
+
+.startShop:hover{
+    background-color: rgb(226, 224, 224);
+}
+
+.itemsGrid{
+    display: grid;
+    grid-template-rows:repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 30px;
+    column-gap: 30px;
+    padding: 20px;
+    max-height:100%;
+}
+
+.itemcard{
+    display: flex;
+    justify-content: space-between;
+    margin-right: ;
+    align-items: center;
+    max-height: 25rem;
+    background-color:black;
+    color: white;
+    border-radius: 20px;
+}
+
+.information{
+    border: 2px solid green;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+.itemImage{
+    /* border: 5px solid red; */
+    width: 40%;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.counterButton{
+    border: 2px solid pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.counterButton h5{
+    font-size: larger;
+}
+.counterButton button {
+    height: 40px;
+    width: 40px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.subtract:hover{
+    background-color: red;
+}
+
+.add:hover{
+    background-color: greenyellow;
+}
+
+.quantityCounter{
+    color: blue;
 }
