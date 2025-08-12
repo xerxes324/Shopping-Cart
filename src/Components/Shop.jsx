@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
-function Fetch(){
-
+function Fetch(props){
+    
     const [fetchdata, setFetchData] = useState([]);
-    const [count, setCount] = useState(Array(8).fill(0));
+    const [count, setCount] = useState(props.state);
+    
     const itemInfo = [];
 
-  useEffect(() => {
+    useEffect(() => {
     fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then(data => setFetchData(data));
@@ -19,7 +20,7 @@ function Fetch(){
       itemInfo.push([e.category, e.id , e.image, e.price, e.title]);
     })
   }
-
+  // props.setState(count);
   return(
     <>
     {itemInfo.map((e, index) => {
@@ -32,7 +33,6 @@ function Fetch(){
 
             <div className="counterButton">
 
-
               <button className="subtract" onClick={()=>{
                 
                 if ( count[index] > 0 ){
@@ -40,6 +40,7 @@ function Fetch(){
                   let temp = [...count];
                   temp[index] -= 1
                   setCount(temp);
+                  // props.setState(temp);
                 }
                 
               }} > - </button>
@@ -55,6 +56,7 @@ function Fetch(){
                   let temp = [...count];
                   temp[index] += 1
                   setCount(temp);
+                  // props.setState(temp);
                   
                 }
               }} > + </button>
@@ -62,12 +64,12 @@ function Fetch(){
 
           </div>
           
-          
+              
         </div>
       )
 
     })}
-
+      
     </>
 
 
@@ -77,11 +79,13 @@ function Fetch(){
 
 function Shop() {
 
+    let [quantity, setQuantity] = useState(Array(8).fill(0)); // runs on initial mount
+    console.log(quantity);
 
     return (
-
+      
       <div className="itemsGrid">
-        <Fetch/>
+        <Fetch state = {quantity} setState = {setQuantity}/>
       </div>
     
     )
