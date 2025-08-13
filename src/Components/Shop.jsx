@@ -3,17 +3,21 @@ import { useEffect, useState } from "react";
 function Fetch(props){
     
     const [fetchdata, setFetchData] = useState([]);
-    const [count, setCount] = useState(props.state);
+    // const [count, setCount] = useState(props.state);
     
+
     const itemInfo = [];
+
 
     useEffect(() => {
     fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then(data => setFetchData(data));
   },[])
-
   // console.log("fetch data is", fetchdata);
+
+
+
   if( fetchdata.length > 0 ){
     let temp = fetchdata.slice(0,8);
     temp.map((e) => {
@@ -35,28 +39,31 @@ function Fetch(props){
 
               <button className="subtract" onClick={()=>{
                 
-                if ( count[index] > 0 ){
+                if ( props.state[index] > 0 ){
 
-                  let temp = [...count];
+                  let temp = [...props.state];
                   temp[index] -= 1
-                  setCount(temp);
+                  props.setState(temp);
                   // props.setState(temp);
+                  localStorage.setItem("quantity", JSON.stringify(temp))
                 }
                 
               }} > - </button>
 
 
-              <h3 className="quantityCounter"> {count[index]} </h3>
+              <h3 className="quantityCounter"> {props.state[index]} </h3>
 
 
               <button className="add" onClick={()=>{
-                console.log("index is", count);
-                if ( count[index] !== 10){
+                // console.log("index is", props.state);
+                if ( props.state[index] !== 10){
                   
-                  let temp = [...count];
+                  let temp = [...props.state];
                   temp[index] += 1
-                  setCount(temp);
+                  props.setState(temp);
                   // props.setState(temp);
+                  // localStorage.clear();
+                  localStorage.setItem("quantity", JSON.stringify(temp));
                   
                 }
               }} > + </button>
@@ -78,9 +85,16 @@ function Fetch(props){
 }
 
 function Shop() {
+  
+    const [quantity, setQuantity] = useState( () => {
+      return(
+        JSON.parse(localStorage.getItem("quantity")) || Array(8).fill(0)
+      )
+      
+    })
+    
+    // console.log(quantity, "is the quantity");
 
-    let [quantity, setQuantity] = useState(Array(8).fill(0)); // runs on initial mount
-    console.log(quantity);
 
     return (
       
