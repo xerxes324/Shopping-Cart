@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Fetch(props){
     
+    const nav = useNavigate();
     const [fetchdata, setFetchData] = useState([]);
-    // const [count, setCount] = useState(props.state);
-    
-
     const itemInfo = [];
 
 
@@ -14,9 +13,6 @@ function Fetch(props){
     .then(response => response.json())
     .then(data => setFetchData(data));
   },[])
-  // console.log("fetch data is", fetchdata);
-
-
 
   if( fetchdata.length > 0 ){
     let temp = fetchdata.slice(0,8);
@@ -24,7 +20,6 @@ function Fetch(props){
       itemInfo.push([e.category, e.id , e.image, e.price, e.title]);
     })
   }
-  // props.setState(count);
   return(
     <>
     {itemInfo.map((e, index) => {
@@ -44,7 +39,6 @@ function Fetch(props){
                   let temp = [...props.state];
                   temp[index] -= 1
                   props.setState(temp);
-                  // props.setState(temp);
                   localStorage.setItem("quantity", JSON.stringify(temp))
 
                   let storageTemp = [];
@@ -53,8 +47,6 @@ function Fetch(props){
                   if(storageTemp && existingCartItems){
                     storageTemp.push(...existingCartItems);
                   }
-                  // storageTemp.push(existingCartItems);
-                  // console.log(storageTemp);
                   
                   storageTemp.forEach((element, index) => {
                     console.log(element);
@@ -63,13 +55,14 @@ function Fetch(props){
                       storageTemp.splice(index,1);
                     }
                   });
-
-                  storageTemp.push([temp[index], e[2], e[3], e[4]]);
-                  // console.log(storageTemp);
-                  // console.log(items,"is storage items)");
-                  // console.log(storageTemp)
+                  if ( temp[index] > 0){
+                    storageTemp.push([temp[index], e[2], e[3], e[4], index]);
+                  }
+                  
                   localStorage.setItem("cartobject", JSON.stringify(storageTemp));
 
+                  nav("../Cart");
+                  nav("../Shop");
 
                 }
                 
@@ -80,14 +73,11 @@ function Fetch(props){
 
 
               <button className="add" onClick={()=>{
-                // console.log("index is", props.state);
                 if ( props.state[index] !== 10){
                   
                   let temp = [...props.state];
                   temp[index] += 1
                   props.setState(temp);
-                  // props.setState(temp);
-                  // localStorage.clear();
                   localStorage.setItem("quantity", JSON.stringify(temp));
 
                   let storageTemp = [];
@@ -105,13 +95,8 @@ function Fetch(props){
                     }
                   });
 
-                  // storageTemp.push(existingCartItems);
-                  
-
-                  storageTemp.push([temp[index], e[2], e[3], e[4]])
+                  storageTemp.push([temp[index], e[2], e[3], e[4],index])
                   console.log(storageTemp.length);
-                  // console.log(items,"is storage items)");
-                  // console.log(storageTemp)
                   localStorage.setItem("cartobject", JSON.stringify(storageTemp));
                 }
               }} > + </button>
@@ -145,10 +130,15 @@ function Shop() {
 
 
     return (
-      
+      <>
+      <div className="ourproducts">
+        <h1> Our Products </h1>
+      </div>
+
       <div className="itemsGrid">
         <Fetch state = {quantity} setState = {setQuantity}/>
       </div>
+      </>
     
     )
     
