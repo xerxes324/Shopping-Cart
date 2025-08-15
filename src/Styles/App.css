@@ -8,8 +8,9 @@ html,body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: green;
     height: 5rem;
+    border-bottom: 5px solid black;
+    cursor: pointer;
 }
 
 .header button{
@@ -54,12 +55,12 @@ html,body{
     transform: translateX(-50%);
     padding: 20px;
     font-size: larger;
-    border-radius: 2em 5em/5em;
-    box-shadow: 2px 2px 0px gray;
 }
 
 .startShop:hover{
-    background-color: rgb(226, 224, 224);
+    background-color: rgb(49, 48, 48);
+    border: 2px solid white;
+    color: white;
 }
 
 .itemsGrid{
@@ -72,10 +73,16 @@ html,body{
     max-height:100%;
 }
 
+.ourproducts{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .itemcard{
     display: flex;
     justify-content: space-between;
-    margin-right: ;
     align-items: center;
     max-height: 25rem;
     background-color:black;
@@ -84,7 +91,6 @@ html,body{
 }
 
 .information{
-    border: 2px solid green;
     flex-grow: 1;
     display: flex;
     justify-content: center;
@@ -127,13 +133,29 @@ html,body{
     background-color: greenyellow;
 }
 
+.emptycart{
+    text-align: center;
+}
+
+.emptycartbutton{
+    width: 8rem;
+    font-size: 30px;
+    justify-self: center;
+}
+
+.emptycartbutton:hover{
+    background-color: black;
+    color: white;
+}
+
 .quantityCounter{
-    color: blue;
+    color: white;
+    font-size: 30px;
 }
 
 .cartBody{
-    height: 100vh;
-    /* background-color: blueviolet; */
+    background-color: black;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     padding-top: 10rem;
@@ -141,6 +163,7 @@ html,body{
 }
 
 .cartHeader{
+    color: white;
     display: flex;
     justify-content: center;
     text-align: left;
@@ -148,40 +171,41 @@ html,body{
 
 .cartItems{
     display: grid;
-    background-color: red;
+    background-color: white;
+    border-radius: 10px;
     grid-template-columns: 1fr;
     row-gap: 4rem;
     grid-template-rows: auto 1fr;
     height: fit-content;
     width: 70%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 .cartImageDiv{
-    background-color: green;
-    height: 15rem;
-    width:100%;
+    /* background-color: green; */
     display: flex;
     align-items: center;
-    margin-top: 2rem;
 }
 
 .cartImages{
-    background-color: white;
+    /* background-color: white; */
     max-height: 15rem;
     width: 15rem;
     margin-left: 2rem;
 }
 
 .cartImageDivLeft{
-    background-color: aqua;
-    flex-grow: 0.2;
+    /* background-color: aqua; */
+    width: 50%;
 }
 
 .cartImageDivRight{
     display: flex;
     flex-direction: column;
-    background-color: pink;
-    flex-grow: 0.8;
+    /* background-color: pink; */
+    /* flex-grow: 0.8; */
+    width: 50%;
     gap: 2rem;
 }
 
@@ -195,7 +219,7 @@ html,body{
 .cartInfo{
     display: flex;
     justify-content: center;
-    background-color: goldenrod;
+    /* background-color: goldenrod; */
     align-items: center;
     flex-direction: column;
     font-size: 30px;
