@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
 function StorageFetch(){
-  const cartList = JSON.parse(localStorage.getItem("cartobject"));
-  const quantity = JSON.parse(localStorage.getItem("quantity"));
+  const cartList = JSON.parse(localStorage.getItem("cartobject")) || [];
+  const quantity = JSON.parse(localStorage.getItem("quantity")) || {};
   console.log(quantity,"is the cart quantity");
   const nav = useNavigate();
 
