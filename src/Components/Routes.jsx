@@ -11,7 +11,10 @@ const routes = [
     element: <Home/>,
     errorElement: <Errorpage/>,
     children : [
-
+        {
+          index:true,
+          element:<About/>
+        },
         {
             path:"Shop",
             element:<Shop/>
@@ -24,6 +27,7 @@ const routes = [
             path: "About",
             element:<About/>
         }
+
 
     ]
   },
