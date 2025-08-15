@@ -11,7 +11,7 @@ function HomeDesign(){
     <>
       <div className = "header">
           <h1 onClick={()=>{
-            nav("../Shop")
+            nav("/Shop")
           }} > Shopping App </h1>
           <div className = "header-buttons">
 
