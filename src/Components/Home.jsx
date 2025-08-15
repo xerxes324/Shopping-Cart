@@ -10,14 +10,16 @@ function HomeDesign(){
   return(
     <>
       <div className = "header">
-          <h1> </h1>
+          <h1 onClick={()=>{
+            nav("../Shop")
+          }} > Shopping App </h1>
           <div className = "header-buttons">
 
             <button onClick={
               ()=>{
                 nav("./About")
               }
-            }><h4> About </h4></button>
+            }><h4> Home </h4></button>
 
             <button onClick={
               () => {
