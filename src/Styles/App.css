@@ -130,3 +130,83 @@ html,body{
 .quantityCounter{
     color: blue;
 }
+
+.cartBody{
+    height: 100vh;
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    padding-top: 10rem;
+    align-items: center;
+}
+
+.cartHeader{
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+
+.cartItems{
+    display: grid;
+    background-color: red;
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+    grid-template-rows: auto 1fr;
+    height: fit-content;
+    width: 70%;
+}
+
+.cartImageDiv{
+    background-color: green;
+    height: 15rem;
+    width:100%;
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.cartImages{
+    background-color: white;
+    max-height: 15rem;
+    width: 15rem;
+    margin-left: 2rem;
+}
+
+.cartImageDivLeft{
+    background-color: aqua;
+    flex-grow: 0.2;
+}
+
+.cartImageDivRight{
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+    flex-grow: 0.8;
+    gap: 2rem;
+}
+
+.cartButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.cartInfo{
+    display: flex;
+    justify-content: center;
+    background-color: goldenrod;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+}
+
+.cartImageDiv button{
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+
