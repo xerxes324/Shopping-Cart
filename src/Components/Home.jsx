@@ -17,19 +17,19 @@ function HomeDesign(){
 
             <button onClick={
               ()=>{
-                nav("./About")
+                nav("/About")
               }
             }><h4> Home </h4></button>
 
             <button onClick={
               () => {
-                nav("./Shop")
+                nav("/Shop")
               }
             }><h4> Shop </h4></button>
             
             <button onClick={
               ()=>{
-                nav("./Cart")
+                nav("/Cart")
               }
             } ><h4> Cart </h4></button>
           </div>
